@@ -8,14 +8,20 @@ import matplotlib.pyplot as plt
 #read csv file
 data = pd.read_csv('players_stats.csv')
 
-# barh(5players x dmg)
+# barh(1 team x dmg)
+rows = pd.DataFrame(data, columns=['team', 'player', 'damage'])
+teamName = 'INTZ'
+team = rows[rows['team'] == teamName]
+players = team['player'].tolist()
+damage = team['damage'].tolist()
+
 plt.figure(1)
-plt.barh(data['player'], data['damage'])
-plt.title("Total Damage Dealt")
+plt.barh(players, damage)
+plt.title("Total Damage Dealt by " + teamName)
 plt.xlabel("Damage")
 plt.ylabel("Player")
 
-# pie(5players x gold)
+# pie(5 players x gold)
 
 # group bar(5 kda x kda ratio)
 
