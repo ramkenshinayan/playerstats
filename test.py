@@ -25,14 +25,11 @@ plt.ylabel("Player")
 figure2_rows = pd.DataFrame(data, columns=['team', 'player', 'gold'])
 teamName = 'INTZ'
 team = figure2_rows[figure2_rows['team'] == teamName]
-players = team['player'].tolist()
-gold = team['gold'].tolist()
 
 plt.figure(2)
-plt.pie(players, gold)
+plt.pie(team['gold'], labels=team['player'])
 plt.title(teamName + " gold")
-plt.xlabel("Gold")
-plt.ylabel("Player")
+
 # group bar(5 kda x kda ratio)
 
 # table - mean median mode(games played) 1 team
