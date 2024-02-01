@@ -9,9 +9,9 @@ import matplotlib.pyplot as plt
 data = pd.read_csv('players_stats.csv')
 
 # barh(1 team x dmg)
-rows = pd.DataFrame(data, columns=['team', 'player', 'damage'])
+figure1_rows = pd.DataFrame(data, columns=['team', 'player', 'damage'])
 teamName = 'INTZ'
-team = rows[rows['team'] == teamName]
+team = figure1_rows[figure1_rows['team'] == teamName]
 players = team['player'].tolist()
 damage = team['damage'].tolist()
 
@@ -21,8 +21,18 @@ plt.title("Total Damage Dealt by " + teamName)
 plt.xlabel("Damage")
 plt.ylabel("Player")
 
-# pie(5 players x gold)
+# pie(1 team x gold)
+figure2_rows = pd.DataFrame(data, columns=['team', 'player', 'gold'])
+teamName = 'INTZ'
+team = figure2_rows[figure2_rows['team'] == teamName]
+players = team['player'].tolist()
+gold = team['gold'].tolist()
 
+plt.figure(2)
+plt.pie(players, gold)
+plt.title(teamName + " gold")
+plt.xlabel("Gold")
+plt.ylabel("Player")
 # group bar(5 kda x kda ratio)
 
 # table - mean median mode(games played) 1 team
